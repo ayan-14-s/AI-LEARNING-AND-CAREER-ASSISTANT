@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Ask AI | AI Learning & Career Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="app-container">
+
+
+        <header class="header">
+
+            <h1>Ask AI Doubt</h1>
+
+            <p>
+                Ask anything and get a simple,
+                easy-to-understand explanation.
+            </p>
+
+        </header>
+
+
+        <main class="dashboard">
+
+
+            <div class="feature-card">
+
+
+                <div class="icon">🤖</div>
+
+
+                <h2>Ask Your Question</h2>
+
+
+                <form action="/ask-ai" method="POST" class="ai-form">
+
+    <textarea
+        name="question"
+        placeholder="Type your question here..."
+        required></textarea>
+
+    <button type="submit" class="ai-button">
+        Ask AI
+    </button>
+
+</form>
+
+
+            </div>
+
+
+            {% if answer %}
+
+<div class="answer-card">
+
+    <div class="answer-header">
+        <div class="answer-icon">💡</div>
+
+        <div>
+            <h2>AI Answer</h2>
+            <p>Here's a simple explanation for your question.</p>
+        </div>
+    </div>
+
+    <div class="answer-content">
+        {{ answer }}
+    </div>
+
+</div>
+
+{% endif %}
+
+
+        </main>
+
+
+        <footer>
+
+            <a href="/learning">
+                ← Back to Learning
+            </a>
+
+        </footer>
+
+
+    </div>
+
+</body>
+
+</html>

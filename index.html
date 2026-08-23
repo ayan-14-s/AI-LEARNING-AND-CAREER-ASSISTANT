@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Learning & Career Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="header">
+            <h1>AI Learning & Career Assistant</h1>
+
+            <p>
+                Your smart companion for learning and career preparation.
+            </p>
+        </header>
+
+
+        <!-- Dashboard -->
+        <main class="dashboard">
+
+
+            <!-- Learning Card -->
+            <div class="feature-card">
+
+                <div class="icon">📚</div>
+
+                <h2>Learning</h2>
+
+                <p>
+                    Ask doubts, summarize notes,
+                    generate quizzes and learn topics easily.
+                </p>
+
+                <a href="/learning" class="button">
+                    Open Learning
+                </a>
+
+            </div>
+
+
+            <!-- Career Card -->
+            <div class="feature-card">
+
+                <div class="icon">💼</div>
+
+                <h2>Career</h2>
+
+                <p>
+                    Practice interviews, review your resume
+                    and get career guidance.
+                </p>
+
+                <a href="/career" class="button">
+    Open Career
+</a>
+
+            </div>
+
+
+            <!-- Chat History Card -->
+            <div class="feature-card">
+
+                <div class="icon">🕘</div>
+
+                <h2>Chat History</h2>
+
+                <p>
+                    View your previous AI conversations
+                    and generated results.
+                </p>
+
+                <a href="/history" class="button">
+    View History
+</a>
+
+            </div>
+
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer>
+            <p>AI Learning & Career Assistant</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

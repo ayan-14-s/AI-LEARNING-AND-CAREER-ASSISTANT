@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>HR Interview Practice | AI Learning & Career Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <header class="header">
+
+            <h1>HR Interview Practice</h1>
+
+            <p>
+                Practice common HR interview questions
+                with AI-generated sample answers.
+            </p>
+
+        </header>
+
+
+        <main class="dashboard">
+
+            <div class="feature-card">
+
+                <div class="icon">💼</div>
+
+                <h2>Start Interview Practice</h2>
+
+                <p>
+                    Enter a job role and choose how many
+                    interview questions you want.
+                </p>
+
+
+                <form action="/hr-interview"
+                      method="POST"
+                      class="ai-form">
+
+                    <input
+                        type="text"
+                        name="role"
+                        placeholder="Enter job role (e.g. Python Developer)"
+                        required>
+
+                    <input
+                        type="number"
+                        name="number"
+                        placeholder="Number of questions"
+                        min="1"
+                        max="20"
+                        required>
+
+                    <button type="submit"
+                            class="ai-button">
+                        Start Practice
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            {% if interview %}
+
+            <div class="answer-card">
+
+                <div class="answer-header">
+
+                    <div class="answer-icon">
+                        💼
+                    </div>
+
+                    <div>
+
+                        <h2>Interview Questions</h2>
+
+                        <p>
+                            Practice these questions before your interview.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="answer-content">
+                    {{ interview }}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </main>
+
+
+        <footer>
+
+            <a href="/career">
+                ← Back to Career
+            </a>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

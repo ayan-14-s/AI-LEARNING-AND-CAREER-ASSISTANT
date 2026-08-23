@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Generate Quiz | AI Learning & Career Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <header class="header">
+
+            <h1>Generate Quiz</h1>
+
+            <p>
+                Test your knowledge with AI-generated questions.
+            </p>
+
+        </header>
+
+
+        <main class="dashboard">
+
+            <div class="feature-card">
+
+                <div class="icon">🧠</div>
+
+                <h2>Choose a Topic</h2>
+
+                <p>
+                    Enter any study topic and AI will
+                    create a quiz for you.
+                </p>
+
+
+                <form action="/generate-quiz"
+                      method="POST"
+                      class="ai-form">
+
+                    <textarea
+                        name="topic"
+                        placeholder="Enter your topic here..."
+                        required></textarea>
+
+                    <button type="submit"
+                            class="ai-button">
+                        Generate Quiz
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            {% if quiz %}
+
+            <div class="answer-card">
+
+                <div class="answer-header">
+
+                    <div class="answer-icon">
+                        🧠
+                    </div>
+
+                    <div>
+
+                        <h2>AI Generated Quiz</h2>
+
+                        <p>
+                            Test yourself and check your knowledge.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="answer-content">
+                    {{ quiz }}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </main>
+
+
+        <footer>
+
+            <a href="/learning">
+                ← Back to Learning
+            </a>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

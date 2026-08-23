@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Chat History | AI Learning & Career Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <header class="header">
+
+            <h1>Chat History</h1>
+
+            <p>
+                View your previous AI conversations and results.
+            </p>
+
+        </header>
+
+
+        <main class="history-container">
+
+            {% if history %}
+
+                {% for item in history %}
+
+                <div class="history-card">
+
+                    <div class="history-header">
+
+                        <div class="history-icon">
+                            ✨
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                {{ item.title }}
+                            </h2>
+
+                            <p>
+                                {{ item.timestamp }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="history-content">
+
+                        {{ item.content
+                           | replace("**", "")
+                           | replace("===", "")
+                        }}
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+
+                <div class="clear-history-card">
+
+                    <div class="icon">
+                        🗑️
+                    </div>
+
+                    <h2>Clear History</h2>
+
+                    <p>
+                        Remove all saved conversations
+                        from your chat history.
+                    </p>
+
+                    <form action="/clear-history" method="POST">
+
+                        <button type="submit"
+                                class="ai-button">
+                            Clear History
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+            {% else %}
+
+                <div class="feature-card">
+
+                    <div class="icon">
+                        🕘
+                    </div>
+
+                    <h2>No Chat History</h2>
+
+                    <p>
+                        Your AI conversations will appear here
+                        after you use the application.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </main>
+
+
+        <footer>
+
+            <a href="/">
+                ← Back to Home
+            </a>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Explain Topic | AI Learning & Career Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <header class="header">
+
+            <h1>Explain Topic</h1>
+
+            <p>
+                Understand difficult topics in simple language.
+            </p>
+
+        </header>
+
+
+        <main class="dashboard">
+
+            <div class="feature-card">
+
+                <div class="icon">💡</div>
+
+                <h2>Enter a Topic</h2>
+
+                <p>
+                    Enter any topic and AI will explain it
+                    with simple points and examples.
+                </p>
+
+
+                <form action="/explain-topic"
+                      method="POST"
+                      class="ai-form">
+
+                    <textarea
+                        name="topic"
+                        placeholder="Enter a topic here..."
+                        required></textarea>
+
+                    <button type="submit"
+                            class="ai-button">
+                        Explain Topic
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            {% if explanation %}
+
+            <div class="answer-card">
+
+                <div class="answer-header">
+
+                    <div class="answer-icon">
+                        💡
+                    </div>
+
+                    <div>
+
+                        <h2>AI Explanation</h2>
+
+                        <p>
+                            Your topic explained in simple language.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="answer-content">
+                    {{ explanation }}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </main>
+
+
+        <footer>
+
+            <a href="/learning">
+                ← Back to Learning
+            </a>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

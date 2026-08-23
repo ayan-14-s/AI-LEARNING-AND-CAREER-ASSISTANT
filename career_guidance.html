@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Career Guidance | AI Learning & Career Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <header class="header">
+
+            <h1>Career Guidance</h1>
+
+            <p>
+                Discover suitable career options based on
+                your interests and education.
+            </p>
+
+        </header>
+
+
+        <main class="dashboard">
+
+            <div class="feature-card">
+
+                <div class="icon">🎯</div>
+
+                <h2>Tell Us About Yourself</h2>
+
+                <p>
+                    Enter your interests and education to
+                    get personalized career suggestions.
+                </p>
+
+
+                <form action="/career-guidance"
+                      method="POST"
+                      class="ai-form">
+
+                    <input
+                        type="text"
+                        name="interest"
+                        placeholder="Enter your interests"
+                        required>
+
+                    <input
+                        type="text"
+                        name="education"
+                        placeholder="Enter your education"
+                        required>
+
+                    <button type="submit"
+                            class="ai-button">
+                        Get Career Guidance
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            {% if guidance %}
+
+            <div class="answer-card">
+
+                <div class="answer-header">
+
+                    <div class="answer-icon">
+                        🎯
+                    </div>
+
+                    <div>
+
+                        <h2>Career Suggestions</h2>
+
+                        <p>
+                            AI-generated career options based
+                            on your information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="answer-content">
+                    {{ guidance }}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </main>
+
+
+        <footer>
+
+            <a href="/career">
+                ← Back to Career
+            </a>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

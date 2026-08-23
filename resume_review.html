@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Review | AI Learning & Career Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <header class="header">
+
+            <h1>Resume Review</h1>
+
+            <p>
+                Get AI-powered feedback to improve your resume.
+            </p>
+
+        </header>
+
+
+        <main class="dashboard">
+
+            <div class="feature-card">
+
+                <div class="icon">📄</div>
+
+                <h2>Paste Your Resume</h2>
+
+                <p>
+                    Paste your resume below and AI will
+                    suggest practical improvements.
+                </p>
+
+
+                <form action="/resume-review"
+                      method="POST"
+                      class="ai-form">
+
+                    <textarea
+                        name="resume"
+                        placeholder="Paste your resume here..."
+                        required></textarea>
+
+                    <button type="submit"
+                            class="ai-button">
+                        Review Resume
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            {% if feedback %}
+
+            <div class="answer-card">
+
+                <div class="answer-header">
+
+                    <div class="answer-icon">
+                        📄
+                    </div>
+
+                    <div>
+
+                        <h2>Resume Feedback</h2>
+
+                        <p>
+                            Here are some suggestions to improve your resume.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="answer-content">
+                    {{ feedback }}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </main>
+
+
+        <footer>
+
+            <a href="/career">
+                ← Back to Career
+            </a>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

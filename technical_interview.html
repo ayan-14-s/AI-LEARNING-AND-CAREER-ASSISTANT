@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Technical Interview | AI Learning & Career Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <header class="header">
+
+            <h1>Technical Interview</h1>
+
+            <p>
+                Practice technical questions with
+                AI-powered answers.
+            </p>
+
+        </header>
+
+
+        <main class="dashboard">
+
+            <div class="feature-card">
+
+                <div class="icon">💻</div>
+
+                <h2>Choose a Subject</h2>
+
+                <p>
+                    Enter a subject or technology and
+                    choose how many questions you want.
+                </p>
+
+
+                <form action="/technical-interview"
+                      method="POST"
+                      class="ai-form">
+
+                    <input
+                        type="text"
+                        name="topic"
+                        placeholder="Enter subject or technology"
+                        required>
+
+                    <input
+                        type="number"
+                        name="number"
+                        placeholder="Number of questions"
+                        min="1"
+                        max="20"
+                        required>
+
+                    <button type="submit"
+                            class="ai-button">
+                        Start Interview
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            {% if interview %}
+
+            <div class="answer-card">
+
+                <div class="answer-header">
+
+                    <div class="answer-icon">
+                        💻
+                    </div>
+
+                    <div>
+
+                        <h2>Technical Questions</h2>
+
+                        <p>
+                            Practice these questions to prepare
+                            for your technical interview.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="answer-content">
+                    {{ interview }}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </main>
+
+
+        <footer>
+
+            <a href="/career">
+                ← Back to Career
+            </a>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
